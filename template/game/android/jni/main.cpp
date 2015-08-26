@@ -1,5 +1,5 @@
 #include "hx3d/core/application.hpp"
-#include "game/osef.hpp"
+#include "game/<#[game_name_lower]#>.hpp"
 
 using namespace hx3d;
 
