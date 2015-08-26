@@ -137,11 +137,8 @@ def create_project(conf):
     # Framework check
     pprint("> Fetching the hx3d framework to `{}`.".format(folder))
     execcommand("git clone --depth=1 {} {}".format(conf["hx3d_repo"], folder))
-    execcommand("cd {} && git submodule update --init".format(folder))
+    execcommand("cd {} && ./clone_dependencies.sh".format(folder))
     execcommand("rm -rf {}/.git".format(folder))
-
-    # TMP
-    execcommand("rm -rf {}/game".format(folder))
 
     # Generate template
     generate_template(conf)
