@@ -1,4 +1,4 @@
-package org.sryncorp.app;
+package <#[android_package_name]#>;
 
 import org.libsdl.app.SDLActivity;
 

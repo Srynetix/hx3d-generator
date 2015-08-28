@@ -80,6 +80,12 @@ def replace_content(content, conf):
 
     return new_content
 
+# GENERATE PACKAGE PATH ####################################
+
+def package_path(name):
+    path = re.sub(r'\.', '/', name)
+    return path
+
 # GENERATE PROJECT FROM TEMPLATE ###########################
 
 def generate_template(conf):
@@ -142,7 +148,7 @@ def create_project(conf):
     pprint("> Fetching the hx3d framework to `{}`.".format(folder))
     execcommand("git clone --depth=1 {} {}".format(conf["hx3d_repo"], folder))
     execcommand("cd {} && ./clone_dependencies.sh".format(folder))
-    execcommand("rm -rf {}/.git".format(folder))
+    execcommand("cd {} && rm -rf .git".format(folder))
 
     # Generate template
     generate_template(conf)
@@ -164,6 +170,7 @@ def main():
 
         config["folder"] = args.new[1] + "/"
         config["android_package_name"] = args.new[2]
+        config["android_package_path"] = package_path(args.new[2])
 
         create_project(config)
     else:
