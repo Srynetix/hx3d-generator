@@ -1,7 +1,7 @@
 #ifndef GAME_SCREENS_TESTSCREEN
 #define GAME_SCREENS_TESTSCREEN
 
-#include "hx3d/core/screen_adapter.hpp"
+#include "hx3d/core/screen.hpp"
 
 #include "hx3d/graphics/shader.hpp"
 #include "hx3d/graphics/batch.hpp"
@@ -11,7 +11,7 @@
 #include "hx3d/graphics/meshes/star.hpp"
 #include "hx3d/graphics/meshes/origin.hpp"
 
-class TestScreen: public hx3d::ScreenAdapter {
+class TestScreen: public hx3d::Screen {
 
 public:
   TestScreen();
