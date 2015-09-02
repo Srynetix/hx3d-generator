@@ -14,7 +14,7 @@ using namespace hx3d;
 
 TestScreen::TestScreen():
   shader(Core::Assets()->get<Shader>("base")),
-  camera(Make<PerspectiveCamera>(Core::App()->getWidth(), Core::App()->getHeight()))
+  camera(Make<PerspectiveCamera>(0.1f, 100.f))
 {
   camera->translate(glm::vec3(0.f, 0.f, -5.f));
   camera->rotate(180.f, glm::vec3(0, 1, 0));
@@ -23,7 +23,7 @@ TestScreen::TestScreen():
   batch.setShader(shader);
 
   origin.transform.position = glm::vec3(0);
-  origin.transform.scale = glm::vec3(0.5f);
+  origin.transform.size = glm::vec3(0.5f);
 
   angle = 0.f;
 }
@@ -52,7 +52,7 @@ void TestScreen::render() {
 
   batch.begin();
 
-  star.transform.scale = glm::vec3(0.3f);
+  star.transform.size = glm::vec3(0.3f);
   star.transform.position.x = 0;
   star.transform.position.y = 0;
   star.transform.position.z = 0;
@@ -60,7 +60,7 @@ void TestScreen::render() {
   star.transform.rotation.y = glm::radians(angle * 2);
   batch.draw(star);
 
-  star.transform.scale = glm::vec3(0.1f);
+  star.transform.size = glm::vec3(0.1f);
   star.transform.rotation.y = glm::radians(-angle * 4);
 
   star.transform.position.x = -0.75f;
