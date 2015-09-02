@@ -1,7 +1,7 @@
 # README #
 
-Using this generator, you can easily start a project with the framework hx3d and a working game.  
-It is written in Python, and use the Colorama library by Jonathan Hartley for color display.
+Using this generator, you can easily start a project with the framework [**hx3d**](https://github.com/Srynetix/hx3d-framework) and a working game.  
+The generator is written in Python, and use the Colorama library by Jonathan Hartley for color display.
 
 ## Configuration ##
 
@@ -13,7 +13,7 @@ You can configure certain aspects in the file `config.py` as:
 
 You need to pass 3 arguments.
 - `game`: The game name (e.g. "Hello")
-- `destination`: The project directory (e.g. "some_random_folder")
+- `destination`: The project directory (e.g. "some_random_folder") **(the folder must not exists !)**
 - `package`: The package name (for android) (e.g. "org.test.app")
 
 ```
