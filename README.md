@@ -1,6 +1,6 @@
 # README #
 
-Using this generator, you can easily start a project with the framework [**hx3d**](https://github.com/Srynetix/hx3d-framework) and a working game.  
+Using this generator, you can easily start a project with the [**hx3d framework**](https://github.com/Srynetix/hx3d-framework) and a working game.  
 The generator is written in Python, and use the Colorama library by Jonathan Hartley for color display.
 
 ## Configuration ##
