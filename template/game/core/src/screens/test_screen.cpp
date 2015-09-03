@@ -5,6 +5,8 @@
 #include "hx3d/core/game.hpp"
 #include "hx3d/core/events.hpp"
 
+#include "hx3d/graphics/framebuffer.hpp"
+
 #include "hx3d/math/random.hpp"
 
 #include "hx3d/utils/log.hpp"
@@ -14,10 +16,10 @@ using namespace hx3d;
 
 TestScreen::TestScreen():
   shader(Core::Assets()->get<Shader>("base")),
-  camera(Make<PerspectiveCamera>(0.1f, 100.f))
+  camera(0.1f, 100.f)
 {
-  camera->translate(glm::vec3(0.f, 0.f, -5.f));
-  camera->rotate(180.f, glm::vec3(0, 1, 0));
+  camera.translate(glm::vec3(0.f, 0.f, -5.f));
+  camera.rotate(180.f, glm::vec3(0, 1, 0));
 
   batch.setCamera(camera);
   batch.setShader(shader);
@@ -29,7 +31,7 @@ TestScreen::TestScreen():
 }
 
 void TestScreen::update() {
-  camera->rotateAround(glm::vec3(0.f, 0.f, 0.f), 1.f, glm::vec3(0, 1, 0));
+  camera.rotateAround(glm::vec3(0.f, 0.f, 0.f), 1.f, glm::vec3(0, 1, 0));
 
   if (Core::CurrentSystem == Core::SystemType::Android) {
     if (Core::Events()->isKeyJustPressed(KeyEvent::Key::AndroidBack)) {
@@ -40,6 +42,8 @@ void TestScreen::update() {
   if (Core::Events()->isKeyPressed(KeyEvent::Key::Escape)) {
     Core::CurrentGame()->stop();
   }
+
+  camera.update();
 }
 
 void TestScreen::resize(int width, int height) {
@@ -47,8 +51,7 @@ void TestScreen::resize(int width, int height) {
 
 void TestScreen::render() {
 
-  Camera::clear(Color(0, 0, 0));
-  camera->update();
+  Framebuffer::clear(Color(0, 0, 0));
 
   batch.begin();
 

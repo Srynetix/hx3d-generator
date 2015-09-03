@@ -22,8 +22,8 @@ public:
 
 private:
   Ptr<hx3d::Shader> shader;
-  Ptr<hx3d::PerspectiveCamera> camera;
-
+  
+  hx3d::PerspectiveCamera camera;
   hx3d::Batch batch;
 
   hx3d::mesh::Star star;
