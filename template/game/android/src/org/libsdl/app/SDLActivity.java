@@ -48,6 +48,7 @@ public class SDLActivity extends Activity {
         System.loadLibrary("SDL2");
         System.loadLibrary("SDL2_image");
         System.loadLibrary("SDL2_mixer");
+        System.loadLibrary("smpeg2");
         //System.loadLibrary("SDL2_net");
         //System.loadLibrary("SDL2_ttf");
 
@@ -136,6 +137,7 @@ public class SDLActivity extends Activity {
     @Override
     protected void onDestroy() {
         Log.v("SDL", "onDestroy()");
+
         // Send a quit message to the application
         SDLActivity.mExitCalledFromJava = true;
         SDLActivity.nativeQuit();
@@ -143,16 +145,18 @@ public class SDLActivity extends Activity {
         // Now wait for the SDL thread to quit
         if (SDLActivity.mSDLThread != null) {
             try {
-                SDLActivity.mSDLThread.join();
+              Log.v("SDL", "Trying to join.");
+              SDLActivity.mSDLThread.join();
             } catch(Exception e) {
-                Log.v("SDL", "Problem stopping thread: " + e);
+              Log.v("SDL", "Problem stopping thread: " + e);
             }
             SDLActivity.mSDLThread = null;
 
-            //Log.v("SDL", "Finished waiting for SDL thread");
+            Log.v("SDL", "Finished waiting for SDL thread");
         }
 
         super.onDestroy();
+
         // Reset everything in case the user re opens the app
         SDLActivity.initialize();
     }
@@ -509,7 +513,7 @@ class SDLMain implements Runnable {
         // Runs SDL_main()
         SDLActivity.nativeInit();
 
-        //Log.v("SDL", "SDL thread terminated");
+        Log.v("SDL", "SDL thread terminated");
     }
 }
 

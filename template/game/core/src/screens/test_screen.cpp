@@ -7,6 +7,7 @@
 
 #include "hx3d/graphics/framebuffer.hpp"
 
+#include "hx3d/math/number_utils.hpp"
 #include "hx3d/math/random.hpp"
 
 #include "hx3d/utils/log.hpp"
@@ -30,7 +31,7 @@ TestScreen::TestScreen():
   angle = 0.f;
 }
 
-void TestScreen::update() {
+void TestScreen::update(float delta) {
   camera.rotateAround(glm::vec3(0.f, 0.f, 0.f), 1.f, glm::vec3(0, 1, 0));
 
   if (Core::CurrentSystem == Core::SystemType::Android) {
@@ -90,10 +91,7 @@ void TestScreen::render() {
 
   batch.draw(origin);
 
-  angle += 0.5f;
-  if (angle > 360.f) {
-    angle -= 360.f;
-  }
+  angle = math::mclamp(angle + 0.5f, 0.f, 360.f);
 
   batch.end();
 }

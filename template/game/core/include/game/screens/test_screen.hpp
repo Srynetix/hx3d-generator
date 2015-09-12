@@ -16,13 +16,13 @@ class TestScreen: public hx3d::Screen {
 public:
   TestScreen();
 
-  virtual void update() override;
+  virtual void update(float delta) override;
   virtual void render() override;
   virtual void resize(int width, int height) override;
 
 private:
   Ptr<hx3d::Shader> shader;
-  
+
   hx3d::PerspectiveCamera camera;
   hx3d::Batch batch;
 
