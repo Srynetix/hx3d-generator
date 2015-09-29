@@ -8,8 +8,8 @@
 
 #include "hx3d/graphics/cameras/perspective_camera.hpp"
 
-#include "hx3d/graphics/meshes/star.hpp"
-#include "hx3d/graphics/meshes/origin.hpp"
+#include "hx3d/graphics/geometries/star_geometry.hpp"
+#include "hx3d/graphics/geometries/origin_geometry.hpp"
 
 class TestScreen: public hx3d::Screen {
 
@@ -26,8 +26,8 @@ private:
   hx3d::PerspectiveCamera camera;
   hx3d::Batch batch;
 
-  hx3d::mesh::Star star;
-  hx3d::mesh::Origin origin;
+  hx3d::Mesh star;
+  hx3d::Mesh origin;
 
   float angle;
 };

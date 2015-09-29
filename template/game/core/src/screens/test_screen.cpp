@@ -25,14 +25,18 @@ TestScreen::TestScreen():
   batch.setCamera(camera);
   batch.setShader(shader);
 
+  origin.setGeometry(Make<OriginGeometry>());
   origin.transform.position = glm::vec3(0);
   origin.transform.size = glm::vec3(0.5f);
+
+  star.setGeometry(Make<StarGeometry>());
 
   angle = 0.f;
 }
 
 void TestScreen::update(float delta) {
   camera.rotateAround(glm::vec3(0.f, 0.f, 0.f), 1.f, glm::vec3(0, 1, 0));
+  camera.update();
 
   if (Core::CurrentSystem == Core::SystemType::Android) {
     if (Core::Events()->isKeyJustPressed(KeyEvent::Key::AndroidBack)) {
@@ -43,8 +47,6 @@ void TestScreen::update(float delta) {
   if (Core::Events()->isKeyPressed(KeyEvent::Key::Escape)) {
     Core::CurrentGame()->stop();
   }
-
-  camera.update();
 }
 
 void TestScreen::resize(int width, int height) {
