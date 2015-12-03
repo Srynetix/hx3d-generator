@@ -1,7 +1,7 @@
 #ifndef GAME_SCREENS_TESTSCREEN
 #define GAME_SCREENS_TESTSCREEN
 
-#include "hx3d/core/screen.hpp"
+#include "hx3d/window/screen.hpp"
 
 #include "hx3d/graphics/shader.hpp"
 #include "hx3d/graphics/batch.hpp"
