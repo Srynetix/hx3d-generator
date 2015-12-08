@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 
 #     Main generator program.
 #     Using the Python library Colorama by Jonathan Hartley.
