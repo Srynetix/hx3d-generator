@@ -123,7 +123,7 @@ def generate_template(conf):
         new = new_files[i]
 
         # File replacement
-        if not new.endswith(".png"):
+        if not new.endswith(".png") and not new.endswith(".icns"):
             old_file = open(old, "r")
             old_file_content = old_file.read()
 

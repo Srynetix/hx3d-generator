@@ -21,7 +21,7 @@ public:
   virtual void resize(int width, int height) override;
 
 private:
-  Ptr<hx3d::Shader> shader;
+  hx3d::Ptr<hx3d::Shader> shader;
 
   hx3d::PerspectiveCamera camera;
   hx3d::Batch batch;
