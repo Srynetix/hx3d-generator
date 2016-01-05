@@ -3,7 +3,7 @@
 
 #include "hx3d/window/game.hpp"
 
-class <#[game_name]#>: public hx3d::Game {
+class <#[game_name]#>: public hx3d::window::Game {
   virtual void create() override;
 };
 

@@ -11,7 +11,11 @@
 #include "hx3d/graphics/geometries/star_geometry.hpp"
 #include "hx3d/graphics/geometries/origin_geometry.hpp"
 
-class TestScreen: public hx3d::Screen {
+using namespace hx3d;
+using namespace hx3d::graphics;
+using namespace hx3d::window;
+
+class TestScreen: public Screen {
 
 public:
   TestScreen();
@@ -21,13 +25,13 @@ public:
   virtual void resize(int width, int height) override;
 
 private:
-  hx3d::Ptr<hx3d::Shader> shader;
+  Ptr<Shader> shader;
 
-  hx3d::PerspectiveCamera camera;
-  hx3d::Batch batch;
+  PerspectiveCamera camera;
+  Batch batch;
 
-  hx3d::Mesh star;
-  hx3d::Mesh origin;
+  Mesh star;
+  Mesh origin;
 
   float angle;
 };

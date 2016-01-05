@@ -13,8 +13,6 @@
 #include "hx3d/utils/log.hpp"
 #include "hx3d/utils/assets.hpp"
 
-using namespace hx3d;
-
 TestScreen::TestScreen():
   shader(Core::Assets()->get<Shader>("base")),
   camera(0.1f, 100.f)
@@ -25,11 +23,11 @@ TestScreen::TestScreen():
   batch.setCamera(camera);
   batch.setShader(shader);
 
-  origin.setGeometry(Make<OriginGeometry>());
+  origin.setGeometry(Make<geom::OriginGeometry>());
   origin.transform.position = glm::vec3(0);
   origin.transform.size = glm::vec3(0.5f);
 
-  star.setGeometry(Make<StarGeometry>());
+  star.setGeometry(Make<geom::StarGeometry>());
 
   angle = 0.f;
 }
