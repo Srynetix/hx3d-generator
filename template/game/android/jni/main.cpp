@@ -7,8 +7,8 @@ using namespace hx3d::window;
 int main(int argc, char** argv) {
 
   ApplicationConfig config;
-  SDL2Application app(Make<<#[game_name]#>>(), config);
-  app.start();
+  SDL2Application app(config);
+  app.start(Make<<#[game_name]#>>());
 
   return 0;
 }
